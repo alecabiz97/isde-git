@@ -32,3 +32,17 @@ def split_data(x, y, tr_fraction=0.5):
 
     """
     pass
+
+    def fit(x_tr, y_tr):
+        """Estimate the centroid for each class from the training data"""
+        labels = np.unique(y_tr)
+        centroids = np.zeros(shape=(labels.size, x_tr.shape[1]))
+
+        for i, label in enumerate(labels):
+            centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)  # centr. for class i
+
+        return centroids, labels
+
+    centroids, labels = fit(xtr, ytr)
+
+    plot_ten_images(centroids, labels, shape=(28, 28))
