@@ -40,15 +40,13 @@ class NMC(object):
         centroids = np.zeros(shape=(labels.size, x_tr.shape[1]))
         for i, label in enumerate(labels):
             centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)
-
-
-    self._centroids = centroids
-
+        self._centroids = centroids
 
 
 
 
-pass
+
+
 
     def predict(self, xts):
         pass
