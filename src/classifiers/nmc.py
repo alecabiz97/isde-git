@@ -39,11 +39,13 @@ class NMC(object):
         labels = np.unique(y_tr)
         centroids = np.zeros(shape=(labels.size, x_tr.shape[1]))
         for i, label in enumerate(labels):
-            centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)  # centr. for class i
-            return centroids, labels
-        centroids, labels = fit(xtr, ytr)
+            centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)
 
-    plot_ten_images(centroids, labels, shape=(28, 28))
+
+    self._centroids= centroids
+
+
+
 
 
 pass
