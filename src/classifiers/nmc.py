@@ -42,7 +42,7 @@ class NMC(object):
             centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)
 
 
-    self._centroids= centroids
+    self._centroids = centroids
 
 
 
