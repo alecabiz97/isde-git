@@ -34,6 +34,7 @@ class NMC(object):
     def class_labels(self):
         return self._class_labels
 
+
     def fit(self, x_tr, y_tr):
         """Estimate the centroid for each class from the training data"""
         labels = np.unique(y_tr)
@@ -50,3 +51,4 @@ class NMC(object):
         dist_euclidean = euclidean_distances(x_ts, self._centroids)
         yc = np.argmin(dist_euclidean, axis=1)
         return yc
+

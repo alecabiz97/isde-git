@@ -31,6 +31,7 @@ def split_data(x, y, tr_fraction=0.5):
     Split the data x, y into two random subsets
 
     """
+
     num_samples = y.size
     n_tr = int(num_samples * tr_fraction)
 
