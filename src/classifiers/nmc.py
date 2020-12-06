@@ -42,11 +42,11 @@ class NMC(object):
             centroids[i, :] = x_tr[y_tr == label, :].mean(axis=0)
         self._centroids = centroids
 
+    def predict(self, x_ts):
 
+        if self._centroids is None:
+            raise ValueError("The classifier is not trained. Call fit first!")
 
-
-
-
-
-    def predict(self, xts):
-        pass
+        dist_euclidean = euclidean_distances(x_ts, self._centroids)
+        yc = np.argmin(dist_euclidean, axis=1)
+        return yc
