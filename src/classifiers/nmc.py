@@ -45,15 +45,12 @@ class NMC(object):
 
 
 
-
-
-
-    def predict(self, Xts):
+    def predict(self, x_ts):
 
         if self._centroids is None:
             raise ValueError("The classifier is not trained. Call fit first!")
 
-        dist_euclidean = euclidean_distances(Xts, self._centroids)
+        dist_euclidean = euclidean_distances(x_ts, self._centroids)
         idx_min = np.argmin(dist_euclidean, axis=1)
         yc = self._class_labels[idx_min]
         return yc
