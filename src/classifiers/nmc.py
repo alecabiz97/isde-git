@@ -48,5 +48,6 @@ class NMC(object):
             raise ValueError("The classifier is not trained. Call fit first!")
 
         dist_euclidean = euclidean_distances(x_ts, self._centroids)
-        yc = np.argmin(dist_euclidean, axis=1)
+        idx_min = np.argmin(dist_euclidean, axis=1)
+        yc = self._class_labels[idx_min]
         return yc
